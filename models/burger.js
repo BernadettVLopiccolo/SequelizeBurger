@@ -1,5 +1,5 @@
 'use strict';
-var Sequelize = require("sequelize");
+
 module.exports = function(sequelize, DataTypes) {
   var burger = sequelize.define("burger", {
     burger_name: {
@@ -14,6 +14,5 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     }
   });
-  burger.sync();
   return burger;
 };

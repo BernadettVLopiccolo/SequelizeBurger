@@ -5,7 +5,6 @@ var burger = require("../models/burger");
 var methodOverride = require("method-override");
 
 var sequelizeConnection = models.sequelize;
-sequelizeConnection.sync();
 
 // get route -> index
 router.get("/", function(req, res) {
@@ -34,13 +33,14 @@ router.post("/burgers/create", function(req, res) {
 
 // put route -> back to index
 router.put("/burgers/update/:id", function(req, res) {
-  models.burger.update({devoured: true }, {
+  console.log("yolo");
+  models.burger.update({devoured: true}, {
     // fields: ["devoured"],
     where: { id: req.params.id }
-  }).then(function(result) {
+  }).then(function(data) {
     // wrapper for orm.js that using MySQL update callback will return a log to console,
     // render back to index with handle
-    console.log(result);
+    console.log("result", data);
     res.redirect("/");
   });
 });
