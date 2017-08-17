@@ -1,19 +1,19 @@
 {
-  "name": "mysql-sequelize-heroku",
+  "name": "node_what_todo",
   "version": "1.0.0",
   "description": "-Node \r -Express \r -MySQL \r -Handlebars \r -Jquery",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Bernadett Villam Lopiccolo",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "dotenv": "^4.0.0",
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
     "mysql": "^2.14.1",
     "mysql2": "^1.4.1",
     "sequelize": "^4.5.0"
