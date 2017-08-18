@@ -1,8 +1,7 @@
 var express = require("express");
 var db = require("../models");
 var router = express.Router();
-// var burger = require("../models/burger");
-// var methodOverride = require("method-override");
+var methodOverride = require("method-override");
 var app = express();
 
 // var sequelizeConnection = models.sequelize;
@@ -21,35 +20,26 @@ router.get("/burgers", function(req, res) {
   });
 });
 
-// // post route -> back to index
-// router.post("/burgers/create", function(req, res) {
-//   // takes the request object using it as input for buger.addBurger
-//   db.burger.create({burger_name: req.body.burger_name}, {devoured: req.body.devoured}).then(function(result) {
-//     // wrapper for orm.js that using MySQL insert callback will return a log to console,
-//     // render back to index with handle
-//     console.log(result);
-//     res.redirect("/");
-//   });
 router.post("/burgers/create", function(req, res) {
-  // takes the request object using it as input for buger.addBurger
-  return db.Burger.create(req.body)
-  .then(function(burger) {
-      res.redirect("/burgers");
-    })
+  db.burger.create({
+    burger_name: req.body.burger_name
+  }, {
+    devoured: req.body.devoured
+  }).then(function(result) {
+    console.log(result);
+    res.redirect("/");
   });
+});
 
 // put route -> back to index
 router.put("/burgers/update/:id", function(req, res) {
-  console.log("yolo");
   db.burger.update({devoured: true}, {
-    // fields: ["devoured"],
     where: { id: req.params.id }
   }).then(function(data) {
-    // wrapper for orm.js that using MySQL update callback will return a log to console,
-    // render back to index with handle
     console.log("result", data);
     res.redirect("/");
   });
 });
+
 
 module.exports = router;
