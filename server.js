@@ -6,6 +6,7 @@ var methodOverride = require("method-override");
 var Sequelize = require("sequelize");
 var models = require("./models");
 var db = require("./models");
+ar exphbs  = require('express-handlebars');
 
 var app = express();
 // Serve static content for the app from the "public" directory in the application directory.
